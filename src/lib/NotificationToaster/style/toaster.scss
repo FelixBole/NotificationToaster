@@ -1,0 +1,91 @@
+.fbToaster {
+    position: fixed;
+    margin: 20px;
+    top: 0;
+    right: 0;
+}
+
+.fbToast {
+    box-sizing: border-box;
+    padding: 0.7rem;
+    margin: 0.7rem;
+    background-color: #fff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 0.25em;
+    width: 250px;
+    position: relative;
+    cursor: pointer;
+    animation: fbToastReady 0.35s cubic-bezier(0.09, 0.96, 0.56, 1.19);
+    transition: position 0.3s ease-in;
+    overflow: hidden;
+
+    &::after {
+        content: '\00D7';
+        position: absolute;
+        top: 2px;
+        right: 5px;
+    }
+
+    &-progress {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 5px;
+        width: calc(100% * var(--progress))
+    }
+
+    &-type {
+        position: absolute;
+        top: -25px;
+        left: -25px;
+        height: 40px;
+        width: 40px;
+        transform: rotate(45deg);
+    }
+}
+
+.fbToasterConsume {
+    animation: fbToastConsume 0.4s ease-in-out forwards;
+}
+
+.fbToasterPrepareDelete {
+    animation: fbToastHide 0.7s ease-in-out forwards;
+    opacity: 0;
+}
+
+
+@keyframes fbToastReady {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fbToastConsume {
+    0% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    40% {
+        transform: translateX(-10%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(200%);
+    }
+}
+
+@keyframes fbToastHide {
+    100% {
+        height: 0;
+        margin: 0;
+        padding: 0;
+    }
+}

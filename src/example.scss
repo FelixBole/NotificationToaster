@@ -1,0 +1,39 @@
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.btn {
+    margin: 5px 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+
+    &-info {
+        background-color: #3e8ed0;
+    }
+
+    &-success {
+        background-color: #48c78e;
+    }
+
+    &-error {
+        background-color: #f14668;
+    }
+
+    &-warn {
+        background-color: #FFC800;
+    }
+
+    &-custom {
+        background: brown;
+    }
+}
